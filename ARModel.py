@@ -6,6 +6,8 @@
 # @Version : 0.1
 import os
 import numpy as np
+import matplotlib.pyplot as plt
+
 '''
 计算Cvx
 k:模比系数矩阵
@@ -186,3 +188,10 @@ for i in range(0,fp):
 
 np.savetxt(filepath+"\\y.dat",yf,fmt='%s')
 print("预报结果已保存在"+filepath+"\\y.dat")
+plt.figure(figsize=(8,4))
+xl=range(1,len(yf)+1)
+plt.plot(xl,yf,label="$Forecast Stage(m)$",color="red",linewidth=2)
+plt.ylabel("Stage(m)")
+plt.xlabel("Time(day)")
+plt.legend()
+plt.show()
